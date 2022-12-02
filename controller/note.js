@@ -25,6 +25,8 @@ const updateNote = async (req, res, next) => {
 const deleteNote = async (req, res, next) => {
     try {
         await Note.findByIdAndDelete(req.params.id)
+        res.status(200).json("Deleted")
+        
     } catch (error) {
         next(error)
     }
