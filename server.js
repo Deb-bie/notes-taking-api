@@ -1,10 +1,9 @@
 const express = require("express")
+const cors = require("cors")
 const dotenv = require("dotenv").config()
 const { dbConnect } = require("./db/config.js")
 const notesRoute = require("./route/notes.js")
 const PORT = process.env.PORT
-
-
 
 // calling the function to connect to the database
 dbConnect()
@@ -12,6 +11,7 @@ dbConnect()
 const app = express()
 
 // MIDDLEWARES
+app.use(cors())
 app.use(express.json())
 
 // ROUTES
