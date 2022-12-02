@@ -45,7 +45,7 @@ const getAllNotes = async (req, res, next) => {
 // GET ONE NOTE
 const getOneNote = async (req, res, next) => {
     try {
-        const oneNote = await Note.findById()
+        const oneNote = await Note.findById(req.params.id)
         res.status(200).json(oneNote)
     } catch (error) {
         next(error)
