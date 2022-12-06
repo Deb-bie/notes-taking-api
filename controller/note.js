@@ -21,6 +21,19 @@ const updateNote = async (req, res, next) => {
     }
 }
 
+
+// PATCH NOTE
+const patchNote = async (req, res, next) => {
+    try {
+        const patchedNote = await Note.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+        res.status(200).json(patchedNote)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+
 // DELETE NOTE
 const deleteNote = async (req, res, next) => {
     try {
@@ -58,6 +71,7 @@ const getOneNote = async (req, res, next) => {
 module.exports = {
     createNote,
     updateNote,
+    patchNote,
     deleteNote,
     getAllNotes,
     getOneNote

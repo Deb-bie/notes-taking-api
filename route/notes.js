@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router();
 
-const {createNote, updateNote, deleteNote, getAllNotes, getOneNote} = require("../controller/note.js")
+const {createNote, updateNote, patchNote, deleteNote, getAllNotes, getOneNote} = require("../controller/note.js")
 
 
 // CREATE
@@ -9,6 +9,9 @@ router.post("/", createNote)
 
 // UPDATE
 router.put("/:id", updateNote)
+
+// PATCH
+router.patch("/:id", patchNote)
 
 // DELETE
 router.delete("/:id", deleteNote)
